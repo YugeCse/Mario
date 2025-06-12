@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7qjllod0b47k"]
+
+[ext_resource type="Texture2D" uid="uid://ci5uebt3uchjo" path="res://images/bgsheet.png" id="1_881tk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ibtp"]
+atlas = ExtResource("1_881tk")
+region = Rect2(64.5, 0, 63.5, 96.5)
+filter_clip = true
+
+[node name="MountainBg" type="NinePatchRect"]
+custom_minimum_size = Vector2(63, 96)
+offset_right = 63.0
+offset_bottom = 96.0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_4ibtp")
+patch_margin_top = 30
+patch_margin_bottom = 60

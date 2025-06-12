@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://r4fy05n120k7"]
+
+[ext_resource type="Texture2D" uid="uid://k4e4y85btaw2" path="res://images/worldmap.png" id="1_py813"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ney63"]
+atlas = ExtResource("1_py813")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsyyt"]
+atlas = ExtResource("1_py813")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lvmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ney63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsyyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mario0" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_2lvmw")
+autoplay = "default"
+frame_progress = 0.59176177

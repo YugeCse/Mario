@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4edoh0rx8eui"]
+
+[ext_resource type="Texture2D" uid="uid://ci5uebt3uchjo" path="res://images/bgsheet.png" id="1_5jw6n"]
+
+[node name="MountainBg2" type="NinePatchRect"]
+clip_contents = true
+custom_minimum_size = Vector2(65, 96)
+offset_top = -172.0
+offset_right = 65.0
+offset_bottom = 96.0
+texture = ExtResource("1_5jw6n")
+draw_center = false
+region_rect = Rect2(0, 0, 63.42537, 96.5)
+patch_margin_top = 35
+patch_margin_bottom = 60
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_top = 34.0
+offset_right = 65.0
+offset_bottom = 555.0
+texture = ExtResource("1_5jw6n")
+region_rect = Rect2(0, 34.424274, 64.20091, 25.618061)
+axis_stretch_vertical = 1

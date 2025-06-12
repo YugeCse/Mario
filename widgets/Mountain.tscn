@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh64irmc6duyk"]
+
+[ext_resource type="Texture2D" uid="uid://ci5uebt3uchjo" path="res://images/bgsheet.png" id="1_v8b3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaa5v"]
+atlas = ExtResource("1_v8b3e")
+region = Rect2(0, 0, 64.19718, 96.066)
+filter_clip = true
+
+[node name="MashroomMountain" type="Sprite2D"]
+texture = SubResource("AtlasTexture_vaa5v")

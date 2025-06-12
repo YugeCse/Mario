@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqtfejyo1rjkm"]
+
+[ext_resource type="Texture2D" uid="uid://dgp4hpk1lyngj" path="res://images/title.png" id="1_4h4gw"]
+[ext_resource type="Script" uid="uid://c5fhdoeq211oq" path="res://scenes/LauncherScene.gd" id="1_35plr"]
+[ext_resource type="Texture2D" uid="uid://dkbo2fgibxapp" path="res://images/logo.png" id="2_jfgk5"]
+[ext_resource type="Texture2D" uid="uid://ci5uebt3uchjo" path="res://images/bgsheet.png" id="2_u4rpy"]
+[ext_resource type="PackedScene" uid="uid://b6nrqtv0jqu7j" path="res://widgets/ScrollableBackground.tscn" id="3_nj1ld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj1ld"]
+atlas = ExtResource("2_u4rpy")
+region = Rect2(128.55496, 0, 31.31334, 95.45682)
+filter_clip = true
+
+[node name="Launcher" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_35plr")
+
+[node name="Sky" type="NinePatchRect" parent="."]
+texture_filter = 2
+texture_repeat = 2
+clip_contents = true
+custom_minimum_size = Vector2(31, 95)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = SubResource("AtlasTexture_nj1ld")
+patch_margin_top = 65
+patch_margin_bottom = 10
+
+[node name="ScrollableBackground" parent="." instance=ExtResource("3_nj1ld")]
+layout_mode = 1
+offset_left = -319.0
+offset_top = -240.5
+offset_right = 321.0
+offset_bottom = 239.5
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 39.0
+offset_right = 615.0
+offset_bottom = 186.0
+texture = ExtResource("2_jfgk5")
+
+[node name="Characters" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 241.0
+offset_right = 576.3333
+offset_bottom = 438.0
+texture = ExtResource("1_4h4gw")
