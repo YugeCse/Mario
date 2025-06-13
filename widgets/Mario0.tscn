@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://r4fy05n120k7"]
+[gd_scene load_steps=6 format=3 uid="uid://r4fy05n120k7"]
 
 [ext_resource type="Texture2D" uid="uid://k4e4y85btaw2" path="res://images/worldmap.png" id="1_py813"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ney63"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_py813"]
 atlas = ExtResource("1_py813")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tsyyt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ney63"]
 atlas = ExtResource("1_py813")
 region = Rect2(16, 16, 16, 16)
 
@@ -14,17 +14,26 @@ region = Rect2(16, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ney63")
+"texture": SubResource("AtlasTexture_py813")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tsyyt")
+"texture": SubResource("AtlasTexture_ney63")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Mario0" type="AnimatedSprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py813"]
+size = Vector2(12, 9)
+
+[node name="Mario" type="CharacterBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2lvmw")
 autoplay = "default"
 frame_progress = 0.59176177
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_py813")
