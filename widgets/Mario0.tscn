@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://r4fy05n120k7"]
+[gd_scene load_steps=7 format=3 uid="uid://r4fy05n120k7"]
 
 [ext_resource type="Texture2D" uid="uid://k4e4y85btaw2" path="res://images/worldmap.png" id="1_py813"]
 
@@ -27,7 +27,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py813"]
 size = Vector2(12, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ney63"]
+size = Vector2(12, 9)
+
 [node name="Mario" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 23
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2lvmw")
@@ -37,3 +42,11 @@ frame_progress = 0.59176177
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_py813")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ney63")
