@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://catbyskipsupa"]
 
 [ext_resource type="Texture2D" uid="uid://c1ks4j6s2r2pf" path="res://images/mariosheet.png" id="1_gxhhw"]
-[ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/mario_player.gd" id="1_qc156"]
+[ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/MarioPlayer.gd" id="1_qc156"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxhhw"]
 radius = 12.0

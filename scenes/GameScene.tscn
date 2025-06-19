@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://mhe7gojm27gk"]
 
-[ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/game_scene.gd" id="1_18ig4"]
+[ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/GameScene.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_vh257"]
 [ext_resource type="PackedScene" uid="uid://catbyskipsupa" path="res://widgets/MarioPlayer.tscn" id="2_xy3my"]
 [ext_resource type="AudioStream" uid="uid://bwgh8ntt4i4xv" path="res://sounds/bg_mario.mp3" id="3_cxv17"]
