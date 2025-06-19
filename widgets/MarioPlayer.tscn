@@ -1,0 +1,159 @@
+[gd_scene load_steps=20 format=3 uid="uid://catbyskipsupa"]
+
+[ext_resource type="Texture2D" uid="uid://c1ks4j6s2r2pf" path="res://images/mariosheet.png" id="1_gxhhw"]
+[ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/mario_player.gd" id="1_qc156"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxhhw"]
+radius = 12.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jcqy"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn6qo"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc156"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxhhw"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s3gt"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv1eo"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0eav"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foqtl"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu5lr"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1lgx"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbde4"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eu3a"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1go2q"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q487x"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0nqw"]
+atlas = ExtResource("1_gxhhw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s3gt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jcqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn6qo")
+}],
+"loop": true,
+"name": &"change",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc156")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxhhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s3gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv1eo")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0eav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foqtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu5lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1lgx")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbde4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eu3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1go2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q487x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0nqw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="MarioPlayer" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 21
+script = ExtResource("1_qc156")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_gxhhw")
+
+[node name="ASprites" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3s3gt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 5054
+limit_bottom = 480
