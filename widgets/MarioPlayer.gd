@@ -18,11 +18,13 @@ var jump_count: float = 0
 ## 之前是否时在地板上
 var was_on_floor: bool = false
 
+## 准备事件
 func _ready() -> void:
 	set_process_input(true)
-	
+
+## 物理过程事件，每帧调用一次
 func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity.y += gravity * delta # 加上重力，重力加速度
 	var is_on_floor_now = is_on_floor()
 	if was_on_floor and not is_on_floor_now:
 		jump_count = 1
@@ -38,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed(&'ui_left'):
 		$ASprites.play('walk')
 		$ASprites.flip_h = true
-		target_velocity_x = -walk_speed
+		target_velocity_x = - walk_speed
 	elif Input.is_action_pressed(&'ui_right'):
 		$ASprites.play('walk')
 		$ASprites.flip_h = false
