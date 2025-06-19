@@ -8,7 +8,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj1ld"]
 atlas = ExtResource("2_u4rpy")
-region = Rect2(128.55496, 0, 31.31334, 95.45682)
+region = Rect2(128.555, 0, 31.3133, 95.4568)
 filter_clip = true
 
 [node name="Launcher" type="ColorRect"]
@@ -56,6 +56,6 @@ texture = ExtResource("2_jfgk5")
 layout_mode = 0
 offset_left = 51.0
 offset_top = 241.0
-offset_right = 576.3333
+offset_right = 576.333
 offset_bottom = 438.0
 texture = ExtResource("1_4h4gw")
