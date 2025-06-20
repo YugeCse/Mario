@@ -19,7 +19,7 @@ var timerCounter: RichTextLabel = $TimerContainer/TimerCounter
 func _ready() -> void:
 	_start_time_timer_counter() # 开始计时器计算时间显示
 
-## 开始计时器计算时间显示
+## 开始计算时间显示
 func _start_time_timer_counter():
 	timeTimer.one_shot = false
 	timeTimer.wait_time = 1
@@ -31,5 +31,4 @@ func _on_timer_timeout() -> void:
 	timerCountInt += 1 # 每次增加1秒
 	var minutes = int((timerCountInt % 60) / 60.0)
 	var seconds = int((timerCountInt % 60) % 60)
-	timerCounter.text = "%02d:%02d" % [minutes, seconds]
-
+	timerCounter.text = "时间  %02d:%02d" % [minutes, seconds]

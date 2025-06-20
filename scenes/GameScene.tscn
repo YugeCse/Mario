@@ -211,13 +211,6 @@ max_distance = 5054.0
 attenuation = 2.82845e-05
 parameters/looping = true
 
-[node name="ColorBackground" type="ColorRect" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(640, 480)
-offset_right = 5054.0
-offset_bottom = 480.0
-color = Color(0.520374, 0.728496, 1, 1)
-
 [node name="SkyBackground" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(5045, 480)
 offset_right = 45.0
@@ -250,7 +243,7 @@ tile_map_data = PackedByteArray("AAARABQAAgAAAAAAAQAQABQAAgAAAAAAAQAPABQAAgAAAAA
 tile_set = SubResource("TileSet_18ig4")
 
 [node name="MarioPlayer" parent="." instance=ExtResource("2_xy3my")]
-position = Vector2(41, 47)
+position = Vector2(54, 236)
 
 [node name="TimerContainer" type="CanvasLayer" parent="."]
 offset = Vector2(16, 12)
@@ -265,5 +258,5 @@ ignore_time_scale = true
 offset_right = 100.0
 offset_bottom = 30.0
 size_flags_horizontal = 0
-text = "00:00"
+text = "时间  00:00"
 scroll_active = false

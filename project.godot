@@ -17,13 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalConfig="*res://global/GlobalConfig.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=960
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 window/stretch/scale=2.0
 
 [editor_plugins]
