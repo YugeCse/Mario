@@ -65,6 +65,7 @@ func _handle_collision_events() -> void:
 	# 	velocity.y = JUMP_FORCE # 跳起来
 	# 	velocity.x = 0.0 # 停止水平移动
 
+## 处理区域进入事件，一般为碰撞检测
 func _on_area_entered(area: Area2D) -> void:
 	print_debug('进入了区域：' + area.name)
 	if area.name == 'GoldCoinArea': # 与金币发生碰撞
