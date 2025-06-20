@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 ## 定时器事件
 func _on_timer_timeout() -> void:
 	timerCountInt += 1
-	var minutes: int = (timerCountInt % 60) / 60
-	var seconds: int = (timerCountInt % 60) % 60
-	timerCounter.text = str(minutes) + ":" + str(seconds)
+	var minutes = str((timerCountInt % 60) / 60)
+	var seconds = str((timerCountInt % 60) % 60)
+	minutes = "0".repeat(2 - max(minutes)) + minutes
+	seconds = "0".repeat(2 - max(seconds)) + seconds
+	timerCounter.text = minutes + ":" + seconds
