@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		elif jump_count < JUMP_MAX_COUNT:
 			jump_count += 1
 			velocity.y = JUMP_FORCE * 0.9 # 二次跳，垂直向上有衰减
+		$ASprites.play('jump') # 播放跳跃动画
 	was_on_floor = is_on_floor_now
 	var target_velocity_x = 0.0
 	if Input.is_action_pressed(&'ui_left'):
