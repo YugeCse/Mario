@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0wwm5nalra8j"]
+[gd_scene load_steps=22 format=3 uid="uid://d0wwm5nalra8j"]
 
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_i7hdx"]
+[ext_resource type="Script" uid="uid://1la8q6wlm8vv" path="res://widgets/GoldBrick.gd" id="2_7u6kv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7hdx"]
 atlas = ExtResource("1_i7hdx")
@@ -145,6 +146,7 @@ size = Vector2(16, 8)
 
 [node name="GoldBrick" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_51ldp")
+script = ExtResource("2_7u6kv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 64
