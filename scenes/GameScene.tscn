@@ -194,7 +194,6 @@ sources/1 = SubResource("TileSetAtlasSource_xy3my")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vijgj"]
 scenes/1/scene = ExtResource("4_xs4ih")
-scenes/1/display_placeholder = ExtResource("4_xs4ih")
 scenes/2/scene = ExtResource("5_6ytau")
 
 [sub_resource type="TileSet" id="TileSet_18ig4"]

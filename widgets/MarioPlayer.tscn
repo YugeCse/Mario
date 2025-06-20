@@ -162,6 +162,8 @@ limit_right = 5054
 limit_bottom = 480
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 96
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_qc156")

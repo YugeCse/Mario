@@ -44,9 +44,10 @@ radius = 7.0
 height = 18.0
 
 [node name="GoldCoin" type="AnimatedSprite2D"]
+texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_1s82n")
 autoplay = "default"
-frame_progress = 0.663222
+frame_progress = 0.498529
 script = ExtResource("2_jp74k")
 
 [node name="Area2D" type="Area2D" parent="."]
