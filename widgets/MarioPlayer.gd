@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name MarioPlayer extends CharacterBody2D
 
 ## 上跳的垂直方向值：-360.0
 const JUMP_FORCE = -360.0
@@ -21,6 +21,8 @@ var was_on_floor: bool = false
 ## 准备事件
 func _ready() -> void:
 	set_process_input(true)
+	$Area2D.name = 'MarioPlayerArea'
+	$Area2D.area_entered.connect(_on_area_entered)
 
 ## 物理过程事件，每帧调用一次
 func _physics_process(delta: float) -> void:
@@ -62,3 +64,9 @@ func _handle_collision_events() -> void:
 	# if collider.is_in_group('enemy'):
 	# 	velocity.y = JUMP_FORCE # 跳起来
 	# 	velocity.x = 0.0 # 停止水平移动
+
+func _on_area_entered(area: Area2D) -> void:
+	print_debug('进入了区域：' + area.name)
+	if area.name == 'GoldCoinArea': # 与金币发生碰撞
+		area.get_parent().queue_free() # 销毁金币
+		GlobalConfig.player_coin_count += 1 # 玩家金币数加1

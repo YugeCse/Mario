@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://catbyskipsupa"]
+[gd_scene load_steps=21 format=3 uid="uid://catbyskipsupa"]
 
 [ext_resource type="Texture2D" uid="uid://c1ks4j6s2r2pf" path="res://images/mariosheet.png" id="1_gxhhw"]
 [ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/MarioPlayer.gd" id="1_qc156"]
@@ -140,13 +140,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qc156"]
+radius = 12.0
+height = 32.0
+
 [node name="MarioPlayer" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 117
 script = ExtResource("1_qc156")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_gxhhw")
 
 [node name="ASprites" type="AnimatedSprite2D" parent="."]
@@ -157,3 +160,8 @@ limit_left = 0
 limit_top = 0
 limit_right = 5054
 limit_bottom = 480
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_qc156")

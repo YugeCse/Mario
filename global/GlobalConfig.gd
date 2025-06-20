@@ -18,3 +18,6 @@ var current_level: int = 1
 
 ## 玩家生命数
 var player_life_count: int = 3
+
+## 玩家收集的金币数量
+var player_coin_count: int = 0

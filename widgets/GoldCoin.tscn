@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnfj7qoy51cvd"]
+[gd_scene load_steps=9 format=3 uid="uid://bnfj7qoy51cvd"]
 
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_kb14j"]
+[ext_resource type="Script" uid="uid://boecoiquh5b7t" path="res://widgets/GoldCoin.gd" id="2_jp74k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp74k"]
 atlas = ExtResource("1_kb14j")
@@ -46,10 +47,11 @@ height = 18.0
 sprite_frames = SubResource("SpriteFrames_1s82n")
 autoplay = "default"
 frame_progress = 0.663222
+script = ExtResource("2_jp74k")
 
-[node name="StaticBody2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_kb14j")
