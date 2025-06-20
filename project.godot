@@ -79,6 +79,8 @@ ui_jump={
 2d_physics/layer_3="tree"
 2d_physics/layer_4="player"
 2d_physics/layer_5="stage"
+2d_physics/layer_6="gold_coin"
+2d_physics/layer_7="gold_brick"
 
 [rendering]
 

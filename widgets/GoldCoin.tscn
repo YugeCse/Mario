@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnfj7qoy51cvd"]
+
+[ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_kb14j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp74k"]
+atlas = ExtResource("1_kb14j")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyupa"]
+atlas = ExtResource("1_kb14j")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7yj8"]
+atlas = ExtResource("1_kb14j")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yubfd"]
+atlas = ExtResource("1_kb14j")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1s82n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp74k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyupa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7yj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yubfd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb14j"]
+radius = 7.0
+height = 18.0
+
+[node name="GoldCoin" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1s82n")
+autoplay = "default"
+frame_progress = 0.663222
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_kb14j")
