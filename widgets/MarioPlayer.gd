@@ -70,3 +70,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.name == 'GoldCoinArea': # 与金币发生碰撞
 		area.get_parent().queue_free() # 销毁金币
 		GlobalConfig.player_coin_count += 1 # 玩家金币数加1
+	elif area.name == 'GoldBrickArea': # 与金币砖块发生碰撞
+		area.get_parent().queue_free() # 销毁金币砖块
+		GlobalConfig.player_coin_count += 1 # 玩家金币数加1

@@ -10,8 +10,7 @@ var collisionArea: Area2D = $Area2D
 var collisionShape: CollisionShape2D = $CollisionShape2D
 
 func _ready():
-    set_frame(0)
-    set_name("GoldCoin")
+    play('default')
+    name = "GoldCoin"
     collisionArea.set_name("GoldCoinArea")
     collisionShape.set_name("GoldCoinShape")
-
