@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbqss5lvpk6f0"]
+
+[ext_resource type="Texture2D" uid="uid://bgw8ihnpteetn" path="res://images/enemysheet.png" id="1_u6kci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn3b3"]
+atlas = ExtResource("1_u6kci")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogg8y"]
+atlas = ExtResource("1_u6kci")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfvjg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn3b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogg8y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vcep"]
+size = Vector2(17, 29)
+
+[node name="RedTurtle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gfvjg")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_5vcep")

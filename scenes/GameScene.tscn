@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://mhe7gojm27gk"]
+[gd_scene load_steps=16 format=4 uid="uid://mhe7gojm27gk"]
 
 [ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/GameScene.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_vh257"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://bwgh8ntt4i4xv" path="res://sounds/bg_mario.mp3" id="3_cxv17"]
 [ext_resource type="PackedScene" uid="uid://bnfj7qoy51cvd" path="res://widgets/GoldCoin.tscn" id="4_xs4ih"]
 [ext_resource type="PackedScene" uid="uid://d0wwm5nalra8j" path="res://widgets/GoldBrick.tscn" id="5_6ytau"]
+[ext_resource type="PackedScene" uid="uid://cbqss5lvpk6f0" path="res://widgets/RedTurtle.tscn" id="8_vijgj"]
+[ext_resource type="PackedScene" uid="uid://dqxuhu418rg0g" path="res://widgets/GreenTurtle.tscn" id="9_pynjx"]
+[ext_resource type="PackedScene" uid="uid://2ypmvgvhvx16" path="res://widgets/RedFlower.tscn" id="10_yrli1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy3my"]
 size = Vector2(1, 480)
@@ -260,3 +263,12 @@ offset_bottom = 30.0
 size_flags_horizontal = 0
 text = "时间  00:00"
 scroll_active = false
+
+[node name="RedTurtle" parent="." instance=ExtResource("8_vijgj")]
+position = Vector2(161, 153)
+
+[node name="GreenTurtle" parent="." instance=ExtResource("9_pynjx")]
+position = Vector2(162, 201)
+
+[node name="RedFlower" parent="." instance=ExtResource("10_yrli1")]
+position = Vector2(136, 403)
