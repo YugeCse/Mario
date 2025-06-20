@@ -1,5 +1,9 @@
 extends Node2D
 
+## 马里奥玩家
+@onready
+var marioPlayer: MarioPlayer = $MarioPlayer
+
 ## 时间计数器
 var timerCountInt: int = 0
 
@@ -13,7 +17,7 @@ var timerCounter: RichTextLabel = $TimerContainer/TimerCounter
 
 ## 准备事件
 func _ready() -> void:
-	_start_time_timer_counter()
+	_start_time_timer_counter() # 开始计时器计算时间显示
 
 ## 开始计时器计算时间显示
 func _start_time_timer_counter():
@@ -26,7 +30,6 @@ func _start_time_timer_counter():
 func _on_timer_timeout() -> void:
 	timerCountInt += 1 # 每次增加1秒
 	var minutes = int((timerCountInt % 60) / 60.0)
-	var seconds = str(int((timerCountInt % 60) % 60))
-	minutes = "0".repeat(2 - max(minutes)) + minutes
-	seconds = "0".repeat(2 - max(seconds)) + seconds
-	timerCounter.text = "%02s:%02s" % [minutes, seconds]
+	var seconds = int((timerCountInt % 60) % 60)
+	timerCounter.text = "%02d:%02d" % [minutes, seconds]
+
