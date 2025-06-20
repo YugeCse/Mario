@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://mhe7gojm27gk"]
+[gd_scene load_steps=13 format=4 uid="uid://mhe7gojm27gk"]
 
 [ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/GameScene.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_vh257"]
 [ext_resource type="PackedScene" uid="uid://catbyskipsupa" path="res://widgets/MarioPlayer.tscn" id="2_xy3my"]
+[ext_resource type="Texture2D" uid="uid://ci5uebt3uchjo" path="res://images/bgsheet.png" id="3_6ytau"]
 [ext_resource type="AudioStream" uid="uid://bwgh8ntt4i4xv" path="res://sounds/bg_mario.mp3" id="3_cxv17"]
 [ext_resource type="PackedScene" uid="uid://bnfj7qoy51cvd" path="res://widgets/GoldCoin.tscn" id="4_xs4ih"]
 [ext_resource type="PackedScene" uid="uid://d0wwm5nalra8j" path="res://widgets/GoldBrick.tscn" id="5_6ytau"]
@@ -217,6 +218,14 @@ offset_right = 5054.0
 offset_bottom = 480.0
 color = Color(0.520374, 0.728496, 1, 1)
 
+[node name="SkyBackground" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(5045, 480)
+offset_right = 45.0
+offset_bottom = 40.0
+texture = ExtResource("3_6ytau")
+region_rect = Rect2(128.896, 0.663734, 30.3114, 94.3688)
+axis_stretch_horizontal = 1
+
 [node name="LeftBoundaryWall" type="StaticBody2D" parent="."]
 position = Vector2(0, 240)
 collision_mask = 8
@@ -244,6 +253,8 @@ tile_set = SubResource("TileSet_18ig4")
 position = Vector2(41, 47)
 
 [node name="TimerContainer" type="CanvasLayer" parent="."]
+offset = Vector2(16, 12)
+transform = Transform2D(1, 0, 0, 1, 16, 12)
 
 [node name="Timer" type="Timer" parent="TimerContainer"]
 one_shot = true
@@ -251,10 +262,8 @@ autostart = true
 ignore_time_scale = true
 
 [node name="TimerCounter" type="RichTextLabel" parent="TimerContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 112.0
-offset_bottom = 42.0
+offset_right = 100.0
+offset_bottom = 30.0
 size_flags_horizontal = 0
 text = "00:00"
 scroll_active = false
