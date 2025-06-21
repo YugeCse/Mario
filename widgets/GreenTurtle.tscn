@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqxuhu418rg0g"]
+[gd_scene load_steps=13 format=3 uid="uid://dqxuhu418rg0g"]
 
+[ext_resource type="Script" uid="uid://7hc0tfx2us3g" path="res://widgets/GreenTurtle.gd" id="1_6tmpx"]
 [ext_resource type="Texture2D" uid="uid://bgw8ihnpteetn" path="res://images/enemysheet.png" id="1_hrl2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tmpx"]
@@ -9,6 +10,22 @@ region = Rect2(0, 32, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wx1do"]
 atlas = ExtResource("1_hrl2w")
 region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pfhh"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r461"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omx3c"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f2rh"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(96, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5pfhh"]
 animations = [{
@@ -22,18 +39,62 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pfhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r461")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omx3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f2rh")
+}],
+"loop": true,
+"name": &"shell",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrl2w"]
-size = Vector2(20, 29)
+size = Vector2(17, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tmpx"]
+size = Vector2(16, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx1do"]
+size = Vector2(20, 2)
 
 [node name="GreenTurtle" type="CharacterBody2D"]
+collision_layer = 128
+script = ExtResource("1_6tmpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5pfhh")
+animation = &"shell"
 autoplay = "default"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hrl2w")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_6tmpx")
+debug_color = Color(0.512653, 0.574106, 0.166898, 0.42)
+
+[node name="ShellDetector" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShellDetector"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_wx1do")
+debug_color = Color(0.58424, 0.383177, 0.994126, 0.42)

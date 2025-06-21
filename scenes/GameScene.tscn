@@ -214,6 +214,8 @@ script = ExtResource("1_18ig4")
 
 [node name="BgAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cxv17")
+volume_db = -3.0
+pitch_scale = 0.8
 max_distance = 5054.0
 attenuation = 2.82845e-05
 parameters/looping = true
@@ -307,14 +309,14 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="RedTurtle" parent="." instance=ExtResource("8_vijgj")]
-position = Vector2(161, 153)
-
-[node name="GreenTurtle" parent="." instance=ExtResource("9_pynjx")]
-position = Vector2(162, 201)
-
 [node name="RedFlower" parent="." instance=ExtResource("10_yrli1")]
 position = Vector2(136, 403)
 
 [node name="MarioPlayer" parent="." instance=ExtResource("2_xy3my")]
 position = Vector2(54, 236)
+
+[node name="RedTurtle" parent="." instance=ExtResource("8_vijgj")]
+position = Vector2(444, 229)
+
+[node name="GreenTurtle" parent="." instance=ExtResource("9_pynjx")]
+position = Vector2(600, 157)

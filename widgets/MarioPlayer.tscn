@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://catbyskipsupa"]
+[gd_scene load_steps=23 format=3 uid="uid://catbyskipsupa"]
 
 [ext_resource type="Texture2D" uid="uid://c1ks4j6s2r2pf" path="res://images/mariosheet.png" id="1_gxhhw"]
 [ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/MarioPlayer.gd" id="1_qc156"]
@@ -145,10 +145,18 @@ animations = [{
 radius = 12.0
 height = 32.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbde4"]
+size = Vector2(18, 28.5)
+
 [node name="MarioPlayer" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 117
 script = ExtResource("1_qc156")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gbde4")
+volume_db = -8.0
+pitch_scale = 0.65
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gxhhw")
@@ -162,13 +170,18 @@ limit_top = 0
 limit_right = 5054
 limit_bottom = 480
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ObjectDetector" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 96
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectDetector"]
 shape = SubResource("CapsuleShape2D_qc156")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_gbde4")
-pitch_scale = 0.65
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_gbde4")
+debug_color = Color(0.947585, 0.173328, 0.387786, 0.42)
