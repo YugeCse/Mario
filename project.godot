@@ -13,12 +13,12 @@ config_version=5
 config/name="Mario"
 run/main_scene="uid://mhe7gojm27gk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalConfig="*res://global/GlobalConfig.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalConfig="*res://global/GlobalConfig.gd"
+RoleGroup="*res://global/RoleGroup.gd"
 
 [display]
 
@@ -94,6 +94,7 @@ ui_jump={
 2d_physics/layer_7="gold_brick"
 2d_physics/layer_8="enemy_turtle"
 2d_physics/layer_9="enemy_mushroom"
+2d_physics/layer_10="enemy_mark"
 
 [rendering]
 

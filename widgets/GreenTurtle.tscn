@@ -3,14 +3,6 @@
 [ext_resource type="Script" uid="uid://7hc0tfx2us3g" path="res://widgets/GreenTurtle.gd" id="1_6tmpx"]
 [ext_resource type="Texture2D" uid="uid://bgw8ihnpteetn" path="res://images/enemysheet.png" id="1_hrl2w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tmpx"]
-atlas = ExtResource("1_hrl2w")
-region = Rect2(0, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx1do"]
-atlas = ExtResource("1_hrl2w")
-region = Rect2(16, 32, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pfhh"]
 atlas = ExtResource("1_hrl2w")
 region = Rect2(48, 48, 16, 16)
@@ -27,19 +19,16 @@ region = Rect2(80, 48, 16, 16)
 atlas = ExtResource("1_hrl2w")
 region = Rect2(96, 48, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tmpx"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx1do"]
+atlas = ExtResource("1_hrl2w")
+region = Rect2(16, 32, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5pfhh"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6tmpx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wx1do")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5pfhh")
@@ -55,6 +44,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"shell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tmpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx1do")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -73,8 +73,8 @@ script = ExtResource("1_6tmpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5pfhh")
-animation = &"shell"
-autoplay = "default"
+animation = &"walk"
+autoplay = "walk"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

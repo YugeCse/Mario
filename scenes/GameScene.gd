@@ -37,6 +37,6 @@ func _start_time_timer_counter():
 ## 定时器事件
 func _on_timer_timeout() -> void:
 	timerCountInt += 1 # 每次增加1秒
-	var minutes = int((timerCountInt % 60) / 60.0)
+	var minutes = int(timerCountInt / 60)
 	var seconds = int((timerCountInt % 60) % 60)
 	timerCounter.text = "时间  %02d:%02d" % [minutes, seconds]
