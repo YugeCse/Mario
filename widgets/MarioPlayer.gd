@@ -31,13 +31,18 @@ func _physics_process(delta: float) -> void:
 	if was_on_floor and not is_on_floor_now: # 此时在空中，还可以跳转的次数设置为1
 		jump_count = 1
 	if Input.is_action_just_pressed(&'ui_jump'):
-		if is_on_floor_now:
+		var allow_jump: bool = false
+		if is_on_floor_now: # 在地板上，可以直接跳
 			jump_count = 1
+			allow_jump = true
 			velocity.y = JUMP_FORCE
-		elif jump_count < JUMP_MAX_COUNT:
+		elif jump_count < JUMP_MAX_COUNT: # 在空中二次跳
 			jump_count += 1
+			allow_jump = true
 			velocity.y = JUMP_FORCE * 0.9 # 二次跳，垂直向上有衰减
-		$ASprites.play('jump') # 播放跳跃动画
+		if allow_jump: # 允许跳跃
+			$AudioStreamPlayer.play() # 播放跳跃声音
+			$ASprites.play('jump') # 播放跳跃动画
 	was_on_floor = is_on_floor_now
 	var target_velocity_x = 0.0
 	if Input.is_action_pressed(&'ui_left'):
@@ -68,10 +73,12 @@ func _handle_collision_events() -> void:
 
 ## 处理区域进入事件，一般为碰撞检测
 func _on_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
 	print_debug('进入了区域：' + area.name)
-	if area.get_parent() is GoldCoin: # 与金币发生碰撞
-		area.get_parent().queue_free() # 销毁金币
+	if parent is GoldCoin: # 与金币发生碰撞
+		parent.remove_from_parent() # 销毁金币
 		GlobalConfig.player_coin_count += 1 # 玩家金币数加1
-	elif area.get_parent() is GoldBrick: # 与金币砖块发生碰撞
-		area.get_parent().queue_free() # 销毁金币砖块
-		GlobalConfig.player_coin_count += 1 # 玩家金币数加1
+	elif parent is GoldBrick: # 与金币砖块发生碰撞
+		parent.hurt_by_player()
+		#area.get_parent().queue_free() # 销毁金币砖块
+		#GlobalConfig.player_coin_count += 1 # 玩家金币数加1

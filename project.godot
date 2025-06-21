@@ -32,6 +32,15 @@ window/stretch/scale=2.0
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gut/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://docs/": "purple",
+"res://global/": "green",
+"res://images/": "orange",
+"res://sounds/": "yellow"
+}
+
 [input]
 
 ui_left={

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://mhe7gojm27gk"]
+[gd_scene load_steps=17 format=4 uid="uid://mhe7gojm27gk"]
 
 [ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/GameScene.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_vh257"]
@@ -205,6 +205,10 @@ physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/2 = SubResource("TileSetScenesCollectionSource_vijgj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrli1"]
+atlas = ExtResource("1_vh257")
+region = Rect2(0, 32, 15.75, 17.5)
+
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_18ig4")
 
@@ -245,9 +249,6 @@ tile_set = SubResource("TileSet_cxv17")
 tile_map_data = PackedByteArray("AAARABQAAgAAAAAAAQAQABQAAgAAAAAAAQAPABQAAgAAAAAAAQAnAAsAAgAAAAAAAQAoAAsAAgAAAAAAAQApAAsAAgAAAAAAAQAqAAsAAgAAAAAAAQA4ABEAAgAAAAAAAQA5ABEAAgAAAAAAAQA6ABEAAgAAAAAAAQA7ABEAAgAAAAAAAQBQAAoAAgAAAAAAAQBRAAoAAgAAAAAAAQBSAAoAAgAAAAAAAQBoABMAAgAAAAAAAQBpABMAAgAAAAAAAQBnABMAAgAAAAAAAQCHAA4AAgAAAAAAAQCGAA4AAgAAAAAAAQCFAA4AAgAAAAAAAQCDAA4AAgAAAAAAAQCEAA4AAgAAAAAAAQCKABkAAgAAAAAAAQCJABkAAgAAAAAAAQCIABkAAgAAAAAAAQCbAAkAAgAAAAAAAQCdAAkAAgAAAAAAAQCfAAkAAgAAAAAAAQCnAAIAAgAAAAAAAQCpAAIAAgAAAAAAAQCrAAIAAgAAAAAAAQC6AAcAAgAAAAAAAQC7AAcAAgAAAAAAAQC8AAcAAgAAAAAAAQC9AAcAAgAAAAAAAQC+AAcAAgAAAAAAAQDeABUAAgAAAAAAAQDfABUAAgAAAAAAAQDhABUAAgAAAAAAAQDgABUAAgAAAAAAAQD0AA4AAgAAAAAAAQD1AA4AAgAAAAAAAQD2AA4AAgAAAAAAAQD4AA4AAgAAAAAAAQD3AA4AAgAAAAAAAQAaAQ4AAgAAAAAAAQAbAQ4AAgAAAAAAAQAcAQ4AAgAAAAAAAQAdAQ4AAgAAAAAAAQAeAQ4AAgAAAAAAAQAvAQ8AAgAAAAAAAQAuAQ8AAgAAAAAAAQAtAQ8AAgAAAAAAAQAsAQ8AAgAAAAAAAQArAQ8AAgAAAAAAAQAEARIAAgAAAAAAAgAFARIAAgAAAAAAAgAGARIAAgAAAAAAAgAHARIAAgAAAAAAAgCsAAsAAgAAAAAAAgCtAAsAAgAAAAAAAgCrAAsAAgAAAAAAAgCaAAkAAgAAAAAAAgCcAAkAAgAAAAAAAgCeAAkAAgAAAAAAAgBcAAsAAgAAAAAAAgBdAAsAAgAAAAAAAgBeAAsAAgAAAAAAAgBfAAsAAgAAAAAAAgBgAAsAAgAAAAAAAgArABAAAgAAAAAAAgAtABAAAgAAAAAAAgAsABAAAgAAAAAAAgAmAAsAAgAAAAAAAgAlAAsAAgAAAAAAAgAjAAsAAgAAAAAAAgAkAAsAAgAAAAAAAgA=")
 tile_set = SubResource("TileSet_18ig4")
 
-[node name="MarioPlayer" parent="." instance=ExtResource("2_xy3my")]
-position = Vector2(54, 236)
-
 [node name="TimerContainer" type="CanvasLayer" parent="."]
 offset = Vector2(16, 12)
 transform = Transform2D(1, 0, 0, 1, 16, 12)
@@ -264,6 +265,48 @@ size_flags_horizontal = 0
 text = "时间  00:00"
 scroll_active = false
 
+[node name="HUDContainer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="Control" type="Control" parent="HUDContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Coin" type="TextureRect" parent="HUDContainer/MarginContainer/HBoxContainer/Control"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 15.0
+offset_bottom = 21.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_yrli1")
+
+[node name="CoinCounter" type="RichTextLabel" parent="HUDContainer/MarginContainer/HBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "x 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="RedTurtle" parent="." instance=ExtResource("8_vijgj")]
 position = Vector2(161, 153)
 
@@ -272,3 +315,6 @@ position = Vector2(162, 201)
 
 [node name="RedFlower" parent="." instance=ExtResource("10_yrli1")]
 position = Vector2(136, 403)
+
+[node name="MarioPlayer" parent="." instance=ExtResource("2_xy3my")]
+position = Vector2(54, 236)

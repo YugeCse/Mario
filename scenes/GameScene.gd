@@ -4,6 +4,10 @@ extends Node2D
 @onready
 var marioPlayer: MarioPlayer = $MarioPlayer
 
+@onready
+var coinCounter: RichTextLabel = \
+	$HUDContainer/MarginContainer/HBoxContainer/CoinCounter
+
 ## 时间计数器
 var timerCountInt: int = 0
 
@@ -17,7 +21,11 @@ var timerCounter: RichTextLabel = $TimerContainer/TimerCounter
 
 ## 准备事件
 func _ready() -> void:
+	$BgAudioPlayer.play() # 播放背景音乐
 	_start_time_timer_counter() # 开始计时器计算时间显示
+
+func _physics_process(delta: float) -> void:
+	coinCounter.text = 'x %d' % GlobalConfig.player_coin_count
 
 ## 开始计算时间显示
 func _start_time_timer_counter():

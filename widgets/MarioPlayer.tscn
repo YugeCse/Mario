@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://catbyskipsupa"]
+[gd_scene load_steps=22 format=3 uid="uid://catbyskipsupa"]
 
 [ext_resource type="Texture2D" uid="uid://c1ks4j6s2r2pf" path="res://images/mariosheet.png" id="1_gxhhw"]
 [ext_resource type="Script" uid="uid://bot3vmn0i434k" path="res://widgets/MarioPlayer.gd" id="1_qc156"]
+[ext_resource type="AudioStream" uid="uid://crt88kwmqjgf" path="res://sounds/mario_jump.mp3" id="3_gbde4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxhhw"]
 radius = 12.0
@@ -167,3 +168,7 @@ collision_mask = 96
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_qc156")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gbde4")
+pitch_scale = 0.65
