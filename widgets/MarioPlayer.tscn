@@ -169,6 +169,8 @@ limit_left = 0
 limit_top = 0
 limit_right = 5054
 limit_bottom = 480
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="ObjectDetector" type="Area2D" parent="."]
 collision_layer = 8

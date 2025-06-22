@@ -210,6 +210,14 @@ region = Rect2(0, 32, 15.75, 17.5)
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_18ig4")
 
+[node name="PersistentCamera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 5045
+limit_bottom = 480
+limit_smoothed = true
+position_smoothing_enabled = true
+
 [node name="BgAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cxv17")
 volume_db = -3.0

@@ -71,13 +71,27 @@ func _physics_process(delta: float) -> void:
 		return # 如果移动未发生碰撞，则不执行下面的代码
 
 ## 弹跳，一般在对敌人造成伤害后发生
-func bounce_jump():
+func bounce_jump(attenuationRate: float = 0.6):
 	$EnemyDetector.set_deferred('monitorable', false)
 	$EnemyDetector.set_deferred('monitorable', false)
-	velocity.y = JUMP_FORCE * 0.6  # 有一定的弹跳衰减
+	velocity.y = JUMP_FORCE * attenuationRate  # 有一定的弹跳衰减
 	await get_tree().create_timer(0.2).timeout
 	$EnemyDetector.set_deferred('monitorable', true)
 	$EnemyDetector.set_deferred('monitorable', true)
+
+## 是否启用相机
+func enable_camera(position: Vector2, enable: bool):
+	$Camera2D.enabled = enable
+	$Camera2D.position = position
+
+## 被敌人杀害
+func murder_by_enemy():
+	$Camera2D.queue_free()
+	$ObjectDetector/CollisionShape2D\
+		.set_deferred('disabled', true)
+	$EnemyDetector/CollisionShape2D\
+		.set_deferred('disabled', true)
+	MarioGame.on_player_die.emit(self)
 
 ## 处理区域进入事件，一般为碰撞检测
 func _on_area_entered(area: Area2D) -> void:
