@@ -23,6 +23,7 @@ var timerCounter: RichTextLabel = $TimerContainer/TimerCounter
 func _ready() -> void:
 	# $BgAudioPlayer.play() # 播放背景音乐
 	_start_time_timer_counter() # 开始计时器计算时间显示
+	EnemySpawner.on_generate_enemy.connect(_on_generate_enemy) # 生成敌人
 
 func _physics_process(delta: float) -> void:
 	coinCounter.text = 'x %d' % GlobalConfig.player_coin_count
@@ -40,3 +41,8 @@ func _on_timer_timeout() -> void:
 	var minutes = int(timerCountInt / 60)
 	var seconds = int((timerCountInt % 60) % 60)
 	timerCounter.text = "时间  %02d:%02d" % [minutes, seconds]
+
+## 当条件合适的时候，生成敌人
+func _on_generate_enemy(type: EnemySpawner.EnemyType, position: Vector2):
+	print_debug('生成敌人：%s, 位置：%s' % [type, position])
+	EnemySpawner.generate_enemy($EnemyMarkerLayer, type, position)

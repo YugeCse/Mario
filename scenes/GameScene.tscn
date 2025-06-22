@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://mhe7gojm27gk"]
+[gd_scene load_steps=15 format=4 uid="uid://mhe7gojm27gk"]
 
 [ext_resource type="Script" uid="uid://ddmjm4csq61e2" path="res://scenes/GameScene.gd" id="1_18ig4"]
 [ext_resource type="Texture2D" uid="uid://gecrm3m8bovi" path="res://images/mapsheet.png" id="1_vh257"]
@@ -7,10 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bwgh8ntt4i4xv" path="res://sounds/bg_mario.mp3" id="3_cxv17"]
 [ext_resource type="PackedScene" uid="uid://bnfj7qoy51cvd" path="res://widgets/GoldCoin.tscn" id="4_xs4ih"]
 [ext_resource type="PackedScene" uid="uid://d0wwm5nalra8j" path="res://widgets/GoldBrick.tscn" id="5_6ytau"]
-[ext_resource type="PackedScene" uid="uid://cbqss5lvpk6f0" path="res://widgets/RedTurtle.tscn" id="8_vijgj"]
-[ext_resource type="PackedScene" uid="uid://dqxuhu418rg0g" path="res://widgets/GreenTurtle.tscn" id="9_pynjx"]
-[ext_resource type="PackedScene" uid="uid://2ypmvgvhvx16" path="res://widgets/RedFlower.tscn" id="10_yrli1"]
-[ext_resource type="PackedScene" uid="uid://bhyjq102n3h4i" path="res://widgets/RedMushroom.tscn" id="11_j40tv"]
+[ext_resource type="PackedScene" uid="uid://bi0j6ffepxid0" path="res://widgets/EnemyMarker.tscn" id="7_6pl24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy3my"]
 size = Vector2(1, 480)
@@ -256,6 +253,77 @@ tile_set = SubResource("TileSet_18ig4")
 
 [node name="EnemyMarkerLayer" type="Node2D" parent="."]
 
+[node name="EnemyMarker" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(447, 311)
+target_enemy_type = 1
+
+[node name="EnemyMarker2" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(722, 196)
+
+[node name="EnemyMarker3" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(612, 143)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker4" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(1012, 298)
+target_enemy_type = 2
+
+[node name="EnemyMarker5" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(1197, 213)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker6" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(1607, 263)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker7" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(1823, 403)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker8" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(2268, 265)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker9" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(2541, 126)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker10" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(2556, 323)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker11" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(2951, 346)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker12" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(3429, 313)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker13" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(4481, 261)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker14" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(4341, 354)
+random_generate_enemy = false
+target_enemy_type = 2
+
+[node name="EnemyMarker15" parent="EnemyMarkerLayer" instance=ExtResource("7_6pl24")]
+position = Vector2(4829, 307)
+random_generate_enemy = false
+target_enemy_type = 2
+
 [node name="TimerContainer" type="CanvasLayer" parent="."]
 offset = Vector2(16, 12)
 transform = Transform2D(1, 0, 0, 1, 16, 12)
@@ -314,17 +382,5 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="RedFlower" parent="." instance=ExtResource("10_yrli1")]
-position = Vector2(136, 403)
-
 [node name="MarioPlayer" parent="." instance=ExtResource("2_xy3my")]
 position = Vector2(54, 236)
-
-[node name="RedTurtle" parent="." instance=ExtResource("8_vijgj")]
-position = Vector2(444, 229)
-
-[node name="GreenTurtle" parent="." instance=ExtResource("9_pynjx")]
-position = Vector2(600, 157)
-
-[node name="RedMushroom" parent="." instance=ExtResource("11_j40tv")]
-position = Vector2(248, 242)

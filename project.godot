@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalConfig="*res://global/GlobalConfig.gd"
 RoleGroup="*res://global/RoleGroup.gd"
+EnemySpawner="*res://global/EnemySpawner.gd"
 
 [display]
 
